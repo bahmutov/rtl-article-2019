@@ -1,0 +1,5 @@
+{
+  "experimentalComponentTesting": true,
+  "testFiles": "**/*cy-spec.js",
+  "componentFolder": "src"
+}
