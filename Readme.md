@@ -12,6 +12,7 @@ Using [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-t
 
 - [Hello.cy-spec.js](src/components/__tests__/Hello.cy-spec.js)
 - [Login.cy-spec.js](src/components/__tests__/Login.cy-spec.js)
+- [ExpandCollapse.cy-spec.js](src/components/__tests__/ExpandCollapse.cy-spec.js)
 - [Pizza.cy-spec.js](src/components/__tests__/Pizza.cy-spec.js)
 - [RemotePizza.cy-spec.js](src/components/__tests__/RemotePizza.cy-spec.js) shows network mock, dependency injection passing, module import mock.
 
