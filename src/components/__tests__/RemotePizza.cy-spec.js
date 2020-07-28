@@ -18,7 +18,7 @@ describe('RemotePizza', () => {
     cy.wait('@pizza'); // make sure the network stub was used
 
     for (const ingredient of ingredients) {
-      expect(cy.contains(ingredient));
+      cy.contains(ingredient);
     }
   });
 
@@ -28,7 +28,7 @@ describe('RemotePizza', () => {
     cy.contains('button', /cook/i).click();
 
     for (const ingredient of ingredients) {
-      expect(cy.contains(ingredient));
+      cy.contains(ingredient);
     }
   });
 
@@ -39,7 +39,7 @@ describe('RemotePizza', () => {
     cy.contains('button', /cook/i).click();
 
     for (const ingredient of ingredients) {
-      expect(cy.contains(ingredient));
+      cy.contains(ingredient);
     }
   });
 });
