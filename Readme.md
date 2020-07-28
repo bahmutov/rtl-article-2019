@@ -11,7 +11,10 @@ Examples for the React Testing Library part of the article series on testing Rea
 Using [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test) are in [src/components/**tests**](src/components/__tests__) next to Jest tests
 
 - [Hello.cy-spec.js](src/components/__tests__/Hello.cy-spec.js)
-- [Pizza.cy-spec.js](src/components/__tests__/Pizza.cy-spec.js)
 - [Login.cy-spec.js](src/components/__tests__/Login.cy-spec.js)
+- [Pizza.cy-spec.js](src/components/__tests__/Pizza.cy-spec.js)
+- [RemotePizza.cy-spec.js](src/components/__tests__/RemotePizza.cy-spec.js) shows network mock, dependency injection passing, module import mock.
+
+![Remote pizza test](images/remote-pizza.gif)
 
 Read [My Vision for Component Tests in Cypress](https://glebbahmutov.com/blog/my-vision-for-component-tests/)
