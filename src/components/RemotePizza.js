@@ -5,7 +5,7 @@ export default function RemotePizza({ fetchIngredients }) {
   const [ingredients, setIngredients] = React.useState([]);
 
   const handleCook = () => {
-    fetchIngredients().then(response => {
+    fetchIngredients().then((response) => {
       setIngredients(response.args.ingredients);
     });
   };
@@ -16,7 +16,7 @@ export default function RemotePizza({ fetchIngredients }) {
       <button onClick={handleCook}>Cook</button>
       {ingredients.length > 0 && (
         <ul>
-          {ingredients.map(ingredient => (
+          {ingredients.map((ingredient) => (
             <li key={ingredient}>{ingredient}</li>
           ))}
         </ul>
