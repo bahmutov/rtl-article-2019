@@ -8,7 +8,21 @@ Examples for the React Testing Library part of the article series on testing Rea
 
 ## Cypress component tests
 
-Using [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test) are in [src/components/**tests**](src/components/__tests__) next to Jest tests. Each spec has built-in Cypress commands and [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro) tests.
+Using [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test) are in [src/components/**tests**](src/components/__tests__) next to Jest tests. Each spec has built-in Cypress commands and [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro) commands.
+
+```js
+// Hello.cy-spec.js
+import React from 'react';
+import { mount } from 'cypress-react-unit-test';
+
+it('hello world', () => {
+  mount(<p>Hello Jest!</p>);
+  // https://on.cypress.io/contains
+  cy.contains('Hello Jest!');
+  // equivalent testing-library command
+  cy.findByText('Hello Jest!');
+});
+```
 
 - [Hello.cy-spec.js](src/components/__tests__/Hello.cy-spec.js)
 - [Login.cy-spec.js](src/components/__tests__/Login.cy-spec.js)
