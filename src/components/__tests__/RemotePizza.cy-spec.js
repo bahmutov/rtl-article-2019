@@ -32,9 +32,20 @@ describe('RemotePizza', () => {
     }
   });
 
-  // verify the module plugin is inserted correctly
-  it.skip('mocks named import from services', () => {
+  it('mocks named import from services', () => {
     cy.stub(services, 'fetchIngredients').resolves({ args: { ingredients } });
+    mount(<RemotePizza />);
+    cy.contains('button', /cook/i).click();
+
+    for (const ingredient of ingredients) {
+      cy.contains(ingredient);
+    }
+  });
+
+  it('mocks method via defaultProps', () => {
+    cy.stub(RemotePizza.defaultProps, 'fetchIngredients').resolves({
+      args: { ingredients },
+    });
     mount(<RemotePizza />);
     cy.contains('button', /cook/i).click();
 

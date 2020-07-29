@@ -26,5 +26,5 @@ export default function RemotePizza({ fetchIngredients }) {
 }
 
 RemotePizza.defaultProps = {
-  fetchIngredients: defaultFetchIngredients,
+  fetchIngredients: (url) => defaultFetchIngredients(url),
 };
