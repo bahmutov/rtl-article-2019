@@ -8,5 +8,7 @@ it('contains all ingredients', () => {
 
   for (const ingredient of ingredients) {
     cy.contains(ingredient);
+    // @testing-library/cypress assertion
+    cy.findByText(ingredient);
   }
 });

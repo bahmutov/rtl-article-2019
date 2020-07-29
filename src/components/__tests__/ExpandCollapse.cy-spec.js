@@ -8,23 +8,19 @@ it('button expands and collapses the content', () => {
     <ExpandCollapse excerpt="Information about dogs">{children}</ExpandCollapse>
   );
 
+  // use built-in Cypress commands
+  // https://on.cypress.io/api
   cy.contains('Hello world').should('not.exist');
-
   cy.contains('button', /expand/i).click();
-
   cy.contains('Hello world').should('be.visible');
-
   cy.contains('button', /collapse/i).click();
-
   cy.contains('Hello world').should('not.exist');
 
-  // expect(queryByText(children)).not.toBeTruthy();
-
-  // fireEvent.click(getByRole('button', { name: /expand/i }));
-
-  // expect(queryByText(children)).toBeTruthy();
-
-  // fireEvent.click(getByRole('button', { name: /collapse/i }));
-
-  // expect(queryByText(children)).not.toBeTruthy();
+  // or use @testing-library/cypress commands
+  cy.log('**@testing-library/cypress**');
+  cy.findByText(children).should('not.exist');
+  cy.findByRole('button', { name: /expand/i }).click();
+  cy.findByText(children); // should exist assertion is built-in
+  cy.findByRole('button', { name: /collapse/i }).click();
+  cy.findByText(children).should('not.exist');
 });
