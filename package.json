@@ -20,6 +20,9 @@
     "test:coverage": "jest --coverage"
   },
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.spec.js"
+    ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect",
       "<rootDir>/src/setupTests.js"

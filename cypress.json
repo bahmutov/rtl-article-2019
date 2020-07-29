@@ -2,5 +2,7 @@
   "experimentalComponentTesting": true,
   "experimentalFetchPolyfill": true,
   "testFiles": "**/*cy-spec.js",
-  "componentFolder": "src"
+  "componentFolder": "src",
+  "viewportWidth": 500,
+  "viewportHeight": 300
 }

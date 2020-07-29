@@ -9,7 +9,7 @@ export default function ExpandCollapse({ excerpt, children }) {
         {excerpt}
         <button
           aria-expanded={isExpanded ? 'true' : 'false'}
-          onClick={() => setExpanded(!isExpanded)}
+          onClick={() => setTimeout(() => setExpanded(!isExpanded), 2000)}
         >
           {isExpanded ? 'Collapse' : 'Expand'}
         </button>
