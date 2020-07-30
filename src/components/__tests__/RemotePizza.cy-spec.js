@@ -7,6 +7,29 @@ import * as services from '../../services';
 const ingredients = ['bacon', 'tomato', 'mozzarella', 'pineapples'];
 
 describe('RemotePizza', () => {
+  it('stubs via prop (di)', () => {
+    const fetchIngredients = cy.stub().resolves({ args: { ingredients } });
+    mount(<RemotePizza fetchIngredients={fetchIngredients} />);
+    cy.contains('button', /cook/i).click();
+
+    for (const ingredient of ingredients) {
+      cy.contains(ingredient);
+    }
+  });
+
+  it('stubs via prop (di with delay)', () => {
+    const fetchIngredients = cy
+      .stub()
+      // resolves after 1 second delay
+      .resolves(Cypress.Promise.resolve({ args: { ingredients } }).delay(1000));
+    mount(<RemotePizza fetchIngredients={fetchIngredients} />);
+    cy.contains('button', /cook/i).click();
+
+    for (const ingredient of ingredients) {
+      cy.contains(ingredient);
+    }
+  });
+
   it('download ingredients from internets (network mock)', () => {
     cy.server();
     cy.route('https://httpbin.org/anything*', { args: { ingredients } }).as(
@@ -16,16 +39,6 @@ describe('RemotePizza', () => {
     mount(<RemotePizza />);
     cy.contains('button', /cook/i).click();
     cy.wait('@pizza'); // make sure the network stub was used
-
-    for (const ingredient of ingredients) {
-      cy.contains(ingredient);
-    }
-  });
-
-  it('stubs via prop (di)', () => {
-    const fetchIngredients = cy.stub().resolves({ args: { ingredients } });
-    mount(<RemotePizza fetchIngredients={fetchIngredients} />);
-    cy.contains('button', /cook/i).click();
 
     for (const ingredient of ingredients) {
       cy.contains(ingredient);

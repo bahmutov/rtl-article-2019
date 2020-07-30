@@ -7,8 +7,6 @@ it('contains all ingredients', () => {
   mount(<Pizza ingredients={ingredients} />);
 
   for (const ingredient of ingredients) {
-    cy.contains(ingredient);
-    // @testing-library/cypress assertion
     cy.findByText(ingredient);
   }
 });
