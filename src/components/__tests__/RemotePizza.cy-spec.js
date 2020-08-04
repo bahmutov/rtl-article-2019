@@ -45,6 +45,23 @@ describe('RemotePizza', () => {
     }
   });
 
+  it('download ingredients from internets (slow network mock)', () => {
+    cy.server();
+    cy.route({
+      url: 'https://httpbin.org/anything*',
+      response: { args: { ingredients } },
+      delay: 1000,
+    }).as('pizza');
+
+    mount(<RemotePizza />);
+    cy.contains('button', /cook/i).click();
+    cy.wait('@pizza'); // make sure the network stub was used
+
+    for (const ingredient of ingredients) {
+      cy.contains(ingredient);
+    }
+  });
+
   it('mocks named import from services', () => {
     cy.stub(services, 'fetchIngredients').resolves({ args: { ingredients } });
     mount(<RemotePizza />);
